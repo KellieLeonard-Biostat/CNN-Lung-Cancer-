@@ -4,6 +4,7 @@
 This study proposes a convolutional neural network (CNN) model for the classification of lung tissue types, specifically lung adenocarcinoma (lung_aca), lung squamous cell carcinoma (lung_scc), and benign lung tissue (lung_n). The model was trained on a dataset consisting of 15,000 labelled images of lung tissue. The proposed architecture consists of multiple convolutional layers followed by fully connected layers, utilising the sparse categorical cross-entropy loss function and softmax activation for multi-class classification. The model was trained using a data augmentation strategy to improve generalisation and prevent overfitting. The performance of the model was evaluated based on accuracy and loss, showing promising results for the automated classification of lung cancer tissues.
  
 **1. Introduction**
+
 Lung cancer remains one of the most prevalent and lethal malignancies worldwide, with early and accurate diagnosis playing a critical role in improving survival rates. Histopathological analysis of lung tissue, commonly performed using haematoxylin and eosin (H&E) staining, is a gold-standard method for distinguishing between benign and malignant lung tissues. However, this process is time-consuming and relies on the expertise of pathologists. Recent advances in deep learning, particularly convolutional neural networks (CNNs), have shown significant promise in automating histological image classification, reducing diagnostic workload while maintaining high accuracy.
 When examining lung tissue under an H&E stain, the main difference between benign lung tissue, lung adenocarcinoma, and lung squamous cell carcinoma lies in cell arrangement, appearance, and glandular structures:
 •	Benign lung tissue (lung_n) exhibits well-organized, uniform cells with normal architecture.
@@ -17,6 +18,7 @@ Figure 1. The dataset examples are shown below: (a) lung adenocarcinoma, (b) lun
 Given these distinct histological features, deep learning models can be trained to recognise and classify lung tissue types automatically. In this study, we propose the use of a CNN model for classifying lung tissue types into three categories: lung benign tissue (lung_n), lung adenocarcinoma (lung_aca), and lung squamous cell carcinoma (lung_scc). We utilise a publicly available dataset of 15,000 images of lung tissue and employ image augmentation techniques to improve model generalisation. The CNN architecture was designed to extract high-level features from these images and classify them into three classes.
 
 **2. Methodology**
+
 **2.1. Data Collection and Preprocessing**
 The dataset used for training and evaluation consists of 15,000 images categorised into three classes: benign lung tissue (lung_n), lung adenocarcinoma (lung_aca), and lung squamous cell carcinoma (lung_scc). The images were extracted from the Kaggle "Lung and Colon Cancer" dataset, which provides labelled histological images of tissue samples. The dataset was organised into three primary directories corresponding to each class.
 
