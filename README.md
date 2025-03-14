@@ -21,60 +21,98 @@ Given these distinct histological features, deep learning models can be trained 
 The dataset used for training and evaluation consists of 15,000 images categorised into three classes: benign lung tissue (lung_n), lung adenocarcinoma (lung_aca), and lung squamous cell carcinoma (lung_scc). The images were extracted from the Kaggle "Lung and Colon Cancer" dataset, which provides labelled histological images of tissue samples. The dataset was organised into three primary directories corresponding to each class.
 
 The preprocessing steps included the following:
+
 •	Rescaling: All images were rescaled to a range of [0, 1] by dividing pixel values by 255.
+
 •	Image Augmentation: To enhance the model's ability to generalise, the training images underwent augmentation. This included random rotations, width/height shifts, shear transformations, zooming, and horizontal flips. These transformations were applied to artificially increase the dataset size and prevent overfitting.
 
 **2.2. Model Architecture**
 A deep CNN architecture was employed to classify the lung tissue images. The model consists of the following layers:
+
 •	Convolutional Layers: The first three layers in the model perform convolution operations with small 3x3 kernels, followed by max-pooling operations with 2x2 windows. The convolutional layers extract features from the images such as edges, textures, and shapes.
-o	Layer 1: 32 filters, kernel size of (3, 3), ReLU activation
-o	Layer 2: 64 filters, kernel size of (3, 3), ReLU activation
-o	Layer 3: 128 filters, kernel size of (3, 3), ReLU activation
+
+   o	Layer 1: 32 filters, kernel size of (3, 3), ReLU activation
+
+   o	Layer 2: 64 filters, kernel size of (3, 3), ReLU activation
+
+   o	Layer 3: 128 filters, kernel size of (3, 3), ReLU activation
+
 •	Fully Connected Layers: After feature extraction, the flattened output from the convolutional layers is passed through two fully connected layers:
-o	Dense Layer: 128 neurons with ReLU activation
-o	Dropout Layer: A dropout rate of 0.5 was used to reduce overfitting
-o	Output Layer: A softmax activation function was used to output the class probabilities for the three categories.
+
+   o	Dense Layer: 128 neurons with ReLU activation
+
+   o	Dropout Layer: A dropout rate of 0.5 was used to reduce overfitting
+
+   o	Output Layer: A softmax activation function was used to output the class probabilities for the three categories.
 
 **2.3. Training Procedure**
 The CNN model was compiled using the Adam optimiser with a learning rate of 0.001. The sparse categorical cross-entropy loss function was used, as the class labels are integers. The model was trained for five epochs, with the dataset split into training and validation sets. A batch size of 32 was used for training, and the training was performed using the GPU available in Google Colab.
 
 **2.4. Evaluation Metrics**
 Model performance was evaluated using the following metrics:
+
 •	Accuracy: The percentage of correctly classified images out of the total number of images.
+
 •	Loss: The value of the loss function at the end of each epoch.
+
 These metrics were monitored during the training process, and the model's performance was also evaluated on the validation set.
  
 
 **3. Results**
 The CNN model achieved the following performance:
-•	Epoch 1: 
+
+*Epoch 1:* 
+   
 o	Training Accuracy: 88.75%
+   
 o	Validation Accuracy: 91.89%
+   
 o	Training Loss: 0.2832
+   
 o	Validation Loss: 0.1992
 
-•	Epoch 2: 
+
+*Epoch 2:* 
+
 o	Training Accuracy: 88.61%
+
 o	Validation Accuracy: 91.89%
+
 o	Training Loss: 0.2825
+
 o	Validation Loss: 0.1994
 
-•	Epoch 3: 
+
+*Epoch 3:* 
+
 o	Training Accuracy: 90.54%
+
 o	Validation Accuracy: 94.01%
+
 o	Training Loss: 0.2407
+
 o	Validation Loss: 0.1694
 
-•	Epoch 4: 
+
+*Epoch 4:* 
+
 o	Training Accuracy: 90.59%
+
 o	Validation Accuracy: 94.23%
+
 o	Training Loss: 0.2336
+
 o	Validation Loss: 0.1624
 
-•	Epoch 5: 
+
+*Epoch 5:* 
+
 o	Training Accuracy: 90.95%
+
 o	Validation Accuracy: 92.19%
+
 o	Training Loss: 0.2237
+
 o	Validation Loss: 0.2034
 
 These results demonstrate the model's ability to effectively classify lung tissue images into the three categories with relatively high accuracy. The validation accuracy is close to the training accuracy, suggesting that the model did not overfit to the training data. Additionally, the model's performance showed a steady improvement in both accuracy and loss.
